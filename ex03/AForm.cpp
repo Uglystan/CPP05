@@ -6,19 +6,18 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 11:49:09 by lgirault          #+#    #+#             */
-/*   Updated: 2023/08/03 09:51:17 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/08/07 11:44:03 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm(std::string name, int gradeSign, int gradeExec) : _gradeSign(gradeSign), _gradeExec(gradeExec)
+AForm::AForm(std::string name, int gradeSign, int gradeExec) : _name(name), _gradeSign(gradeSign), _gradeExec(gradeExec)
 {
 	if (gradeSign < 1 || gradeExec < 1)
 		throw AForm::GradeTooHighException();
 	if (gradeSign > 150 || gradeExec > 150)
 		throw AForm::GradeTooLowException();
-	_name = name;
 	_isSign = 0;
 	std::cout << "AForm constructor called" << std::endl;
 }
@@ -37,7 +36,6 @@ AForm&	AForm::operator=(AForm const& substitue)
 {
 	if (this != &substitue)
 	{
-		_name = substitue._name;
 		_isSign = substitue._isSign;
 	}
 	return (*this);
@@ -94,4 +92,12 @@ const char*	AForm::UnsignedFormException::what(void) const throw()
 const char*	AForm::OpenFileException::what(void) const throw()
 {
 	return ("Error File can't be open");
+}
+
+void	AForm::checkGrade(Bureaucrat const& executor) const
+{
+	if (executor.getGrade() > this->getGradeExec())
+		throw (AForm::GradeTooLowException());
+	if (this->getIsSign() == 0)
+		throw (AForm::UnsignedFormException());
 }

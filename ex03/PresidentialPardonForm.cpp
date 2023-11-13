@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 17:45:45 by lgirault          #+#    #+#             */
-/*   Updated: 2023/08/03 09:27:31 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/08/05 10:43:41 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,6 @@ PresidentialPardonForm&	PresidentialPardonForm::operator=(PresidentialPardonForm
 
 void	PresidentialPardonForm::execute(Bureaucrat const& executor) const
 {
-	if (executor.getGrade() > this->getGradeExec())
-		throw (AForm::GradeTooLowException());
-	if (this->getIsSign() == 0)
-		throw (AForm::UnsignedFormException());
+	checkGrade(executor);
 	std::cout << _target << " you are forgiven by President Zaphod Beeblebrox." << std::endl;
 }

@@ -6,13 +6,13 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 19:04:29 by lgirault          #+#    #+#             */
-/*   Updated: 2023/08/03 09:59:16 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/08/09 14:46:31 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("PresidentialRequestForm", 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137), _target(target)
 {
 	std::cout << "ShrubberyCreationForm constructor called" << std::endl;
 }
@@ -40,10 +40,7 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 
 void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 {
-	if (executor.getGrade() > this->getGradeExec())
-		throw (AForm::GradeTooLowException());
-	if (this->getIsSign() == 0)
-		throw (AForm::UnsignedFormException());
+	checkGrade(executor);
 	 std::ofstream fichier((_target + "_shrubbery").c_str());
 	 if (fichier.is_open())
 	 {

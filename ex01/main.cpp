@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:30:59 by lgirault          #+#    #+#             */
-/*   Updated: 2023/08/02 17:33:37 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/09/12 14:00:19 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int	main()
 {
-	Form	f("test", 130, 150);
-	Bureaucrat	b("Paul", 131);
+	Form	f("test", 100, 110);
+	Bureaucrat	b("Paul", 101);
 	
 	std::cout << f << std::endl;
 	std::cout << b << std::endl;

@@ -6,20 +6,19 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 09:08:07 by lgirault          #+#    #+#             */
-/*   Updated: 2023/08/03 09:57:06 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/08/09 14:46:00 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
-Bureaucrat::Bureaucrat(std::string name, int grade)
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
-	_name = name;
 	_grade = grade;
 	std::cout << "Bureaucrat constructor called" << std::endl;
 }
@@ -33,7 +32,6 @@ Bureaucrat&	Bureaucrat::operator=(Bureaucrat const& substitue)
 {
 	if(this != &substitue)
 	{
-		_name = substitue._name;
 		_grade = substitue._grade;
 	}
 	return (*this);

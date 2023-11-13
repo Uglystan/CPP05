@@ -6,19 +6,18 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 11:49:09 by lgirault          #+#    #+#             */
-/*   Updated: 2023/08/02 14:05:25 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/08/07 11:31:30 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form(std::string name, int gradeSign, int gradeExec) : _gradeSign(gradeSign), _gradeExec(gradeExec)
+Form::Form(std::string name, int gradeSign, int gradeExec) : _name(name), _gradeSign(gradeSign), _gradeExec(gradeExec)
 {
 	if (gradeSign < 1 || gradeExec < 1)
 		throw Form::GradeTooHighException();
 	if (gradeSign > 150 || gradeExec > 150)
 		throw Form::GradeTooLowException();
-	_name = name;
 	_isSign = 0;
 	std::cout << "Form constructor called" << std::endl;
 }
@@ -37,7 +36,6 @@ Form&	Form::operator=(Form const& substitue)
 {
 	if (this != &substitue)
 	{
-		_name = substitue._name;
 		_isSign = substitue._isSign;
 	}
 	return (*this);

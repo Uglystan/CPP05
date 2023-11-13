@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 15:23:43 by lgirault          #+#    #+#             */
-/*   Updated: 2023/08/02 14:21:53 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/08/07 11:29:27 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class Bureaucrat
 		void	signForm(Form& form);
 
 	private :	
-		std::string	_name;
+		const std::string	_name;
 		int	_grade;
 		class GradeTooHighException : public std::exception
 		{

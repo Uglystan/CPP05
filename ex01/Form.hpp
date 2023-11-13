@@ -6,7 +6,7 @@
 /*   By: lgirault <lgirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 11:42:16 by lgirault          #+#    #+#             */
-/*   Updated: 2023/08/02 14:21:35 by lgirault         ###   ########.fr       */
+/*   Updated: 2023/08/07 11:30:45 by lgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class	Form
 		void	beSigned(Bureaucrat const& bureaucrat);
 
 	private :
-		std::string	_name;
+		const std::string	_name;
 		const int	_gradeSign;
 		const int	_gradeExec;
 		bool	_isSign;
